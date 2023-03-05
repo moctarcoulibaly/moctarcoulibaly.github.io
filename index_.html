@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complete Responsive Online Education Website Design</title>
+
+    <!-- swiper css link  -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+
+    <!-- custom css file link  -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap");
+
+      :root {
+        --green: #00e77f;
+        --white: #fff;
+        --light-white: #aaa;
+        --black: #3d3d3d;
+        --light-bg: #4b4b4b;
+      }
+
+      * {
+        font-family: "Rubik", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        transition: 0.2s linear;
+        text-transform: capitalize;
+      }
+
+      *::selection {
+        background-color: var(--white);
+        color: var(--black);
+      }
+
+      html {
+        font-size: 62.5%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        scroll-padding-top: 8rem;
+      }
+
+      ::-webkit-scrollbar {
+        height: 0.5rem;
+        width: 1rem;
+      }
+
+      ::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: var(--green);
+        border-radius: 5rem;
+      }
+
+      body {
+        background-color: var(--black);
+      }
+
+      section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 1rem;
+        border-radius: 5rem;
+        background-color: var(--light-bg);
+        cursor: pointer;
+        color: var(--white);
+        font-size: 1.8rem;
+        padding: 1rem 3rem;
+      }
+
+      .btn:hover {
+        background-color: var(--white);
+        color: var(--black);
+      }
+
+      .heading {
+        margin-bottom: 2.5rem;
+        text-align: center;
+        font-size: 4rem;
+        color: var(--white);
+        text-transform: uppercase;
+      }
+
+      .heading span {
+        color: var(--green);
+        text-transform: uppercase;
+      }
+
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: var(--light-bg);
+      }
+
+      .header .flex {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .header .flex .logo {
+        font-size: 2.5rem;
+        color: var(--white);
+      }
+
+      .header .flex .navbar a {
+        margin-left: 2rem;
+        color: var(--light-white);
+        font-size: 2rem;
+      }
+
+      .header .flex .navbar a:hover {
+        color: var(--green);
+      }
+
+      #menu-btn {
+        cursor: pointer;
+        color: var(--white);
+        font-size: 2.5rem;
+        display: none;
+      }
+
+      .home {
+        margin-top: 6rem;
+      }
+
+      .home .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap-reverse;
+        gap: 1.5rem;
+      }
+
+      .home .row .content {
+        flex: 1 1 40rem;
+        text-align: center;
+      }
+
+      .home .row .image {
+        flex: 1 1 40rem;
+      }
+
+      .home .row .image img {
+        width: 100%;
+      }
+
+      .home .row .content h3 {
+        margin-bottom: 1rem;
+        font-size: 10rem;
+        color: var(--white);
+        line-height: 1;
+      }
+
+      .home .row .content h3 span {
+        color: var(--green);
+      }
+
+      .count .box-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
+
+      .count .box-container .box {
+        background-color: var(--light-bg);
+        border-radius: 0.5rem;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+      }
+
+      .count .box-container .box i {
+        font-size: 5rem;
+        color: var(--green);
+      }
+
+      .count .box-container .box .content h3 {
+        font-size: 2rem;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+      }
+
+      .count .box-container .box .content p {
+        font-size: 1.6rem;
+        color: var(--light-white);
+      }
+
+      .about .row {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .about .row .image {
+        flex: 1 1 40rem;
+      }
+
+      .about .row .image img {
+        width: 100%;
+      }
+
+      .about .row .content {
+        text-align: center;
+        flex: 1 1 40rem;
+      }
+
+      .about .row .content h3 {
+        font-size: 3rem;
+        color: var(--white);
+      }
+
+      .about .row .content p {
+        padding: 1rem 0;
+        line-height: 2;
+        font-size: 1.6rem;
+        color: var(--light-white);
+      }
+
+      .courses .slide {
+        background-color: var(--light-bg);
+        border-radius: 0.5rem;
+        text-align: center;
+        padding: 2rem;
+        margin-bottom: 4rem;
+        user-select: none;
+      }
+
+      .courses .slide img {
+        height: 25rem;
+        width: 100%;
+      }
+
+      .courses .slide h3 {
+        margin: 1.5rem 0;
+        font-size: 2rem;
+        color: var(--white);
+      }
+
+      .courses .slide p {
+        line-height: 2;
+        font-size: 1.6rem;
+        color: var(--light-white);
+      }
+
+      .swiper-pagination-bullet {
+        background-color: var(--white);
+      }
+
+      .swiper-pagination-bullet-active {
+        background-color: var(--green);
+      }
+
+      .teachers .slide {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 4rem;
+        user-select: none;
+      }
+
+      .teachers .slide img {
+        height: 55rem;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 0.5rem;
+      }
+
+      .teachers .slide h3 {
+        margin-top: 1.5rem;
+        font-size: 2rem;
+        text-align: center;
+        color: var(--white);
+      }
+
+      .teachers .slide .share {
+        position: absolute;
+        top: 1rem;
+        left: -10rem;
+      }
+
+      .teachers .slide:hover .share {
+        left: 2rem;
+      }
+
+      .teachers .slide .share a {
+        display: block;
+        margin-top: 1rem;
+        height: 4.5rem;
+        width: 4.5rem;
+        line-height: 4.5rem;
+        border-radius: 0.5rem;
+        background-color: var(--white);
+        color: var(--black);
+        text-align: center;
+        font-size: 2rem;
+      }
+
+      .teachers .slide .share a:hover {
+        background-color: var(--green);
+        color: var(--white);
+      }
+
+      .reviews-slider .slide {
+        border-radius: 0.5rem;
+        background-color: var(--light-bg);
+        padding: 2rem;
+        margin-bottom: 4rem;
+        user-select: none;
+      }
+
+      .reviews-slider .slide p {
+        line-height: 2;
+        font-size: 1.6rem;
+        color: var(--light-white);
+      }
+
+      .reviews-slider .slide .user {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .reviews-slider .slide .user img {
+        height: 7rem;
+        width: 7rem;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .reviews-slider .slide .user h3 {
+        font-size: 2rem;
+        color: var(--white);
+        margin-bottom: 0.7rem;
+      }
+
+      .reviews-slider .slide .user .stars i {
+        font-size: 1.5rem;
+        color: var(--green);
+      }
+
+      .contact .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      .contact .row .image {
+        flex: 1 1 40rem;
+      }
+
+      .contact .row .image img {
+        width: 100%;
+      }
+
+      .contact .row form {
+        flex: 1 1 40rem;
+      }
+
+      .contact .row form .box {
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 0.5rem;
+        background-color: var(--light-bg);
+        font-size: 1.8rem;
+        color: var(--white);
+        padding: 1.4rem;
+        text-transform: none;
+      }
+
+      .contact .row form span {
+        font-size: 1.6rem;
+        color: var(--light-white);
+      }
+
+      .contact .row form .radio {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .contact .row form .radio label {
+        font-size: 1.6rem;
+        color: var(--light-white);
+        margin-left: 0.5rem;
+        cursor: pointer;
+      }
+
+      .contact .row form .radio #female {
+        margin-left: 2rem;
+      }
+
+      .contact .row form .radio input {
+        appearance: none;
+        height: 2rem;
+        width: 2rem;
+        background-color: var(--light-white);
+        cursor: pointer;
+      }
+
+      .contact .row form .radio input:checked {
+        background-color: var(--green);
+        border-radius: 5rem;
+      }
+
+      .contact .row form .radio #male:checked ~ label[for="male"] {
+        color: var(--green);
+      }
+
+      .contact .row form .radio #female:checked ~ label[for="female"] {
+        color: var(--green);
+      }
+
+      .footer {
+        background-color: var(--light-bg);
+        text-align: center;
+        /* padding-bottom: 7rem; */
+      }
+
+      .footer .share a {
+        margin: 0 0.3rem;
+        height: 4.5rem;
+        width: 4.5rem;
+        line-height: 4.5rem;
+        border-radius: 50%;
+        font-size: 2rem;
+        color: var(--white);
+        background-color: var(--black);
+      }
+
+      .footer .share a:hover {
+        background-color: var(--green);
+      }
+
+      .footer .credit {
+        margin-top: 2.5rem;
+        padding: 1.5rem;
+        padding-top: 2.5rem;
+        border-top: 0.1rem solid var(--light-white);
+        font-size: 2rem;
+        color: var(--light-white);
+      }
+
+      .footer .credit span {
+        color: var(--green);
+      }
+
+      /* media queries  */
+
+      @media (max-width: 991px) {
+        html {
+          font-size: 55%;
+        }
+
+        .home .row .content h3 {
+          font-size: 8rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #menu-btn {
+          display: inline-block;
+        }
+
+        #menu-btn.fa-times {
+          transform: rotate(180deg);
+        }
+
+        .header .flex .navbar {
+          position: absolute;
+          top: 99%;
+          left: 0;
+          right: 0;
+          border-top: 0.1rem solid var(--light-white);
+          border-bottom: 0.1rem solid var(--light-white);
+          background-color: var(--light-bg);
+          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        }
+
+        .header .flex .navbar.active {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .header .flex .navbar a {
+          display: block;
+          margin: 2rem;
+        }
+
+        .home .row .content h3 {
+          font-size: 6rem;
+        }
+      }
+
+      @media (max-width: 450px) {
+        html {
+          font-size: 25%;
+        }
+
+        .home .row .content h3 {
+          font-size: 5rem;
+        }
+
+        .heading {
+          font-size: 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header section starts  -->
+
+    <header class="header">
+      <section class="flex">
+        <a href="#home" class="logo">Team C.</a>
+
+        <nav class="navbar">
+          <a href="#home">accueil</a>
+          <a href="#about">à propos</a>
+
+          <a href="#teachers">professeurs</a>
+          <a href="#reviews">commentaires</a>
+          <a href="#contact">contact</a>
+        </nav>
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+      </section>
+    </header>
+
+    <!-- header section ends -->
+
+    <!-- home section starts  -->
+
+    <section class="home" id="home">
+      <div class="row">
+        <div class="content">
+          <h3>compte <span>rendu Python</span></h3>
+          <a href="#contact" class="btn">contact us</a>
+        </div>
+
+        <div class="image">
+          <img src="images/homg-img.svg" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- home section ends -->
+
+    <!-- couter section stars  -->
+
+    <section class="count">
+      <div class="box-container">
+        <div class="box">
+          <i class="fas fa-graduation-cap"></i>
+          <div class="content">
+            <h3>+50</h3>
+            <p>cours</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <i class="fas fa-user-graduate"></i>
+          <div class="content">
+            <h3>+40</h3>
+            <p>étudiants</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <i class="fas fa-chalkboard-user"></i>
+          <div class="content">
+            <h3>+10</h3>
+            <p>professeurs</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <i class="fas fa-face-smile"></i>
+          <div class="content">
+            <h3>100%</h3>
+            <p>satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- couter section ends -->
+
+    <!-- about section starts  -->
+
+    <section class="about" id="about">
+      <div class="row">
+        <div class="image">
+          <img src="images/course-6.svg" alt="" />
+        </div>
+
+        <div class="content">
+          <h3>à propos de nous</h3>
+          <p>
+            Le groupe C est composé de quatre étudiants Hisham oussama ALi et
+            Mokhtar en ingénierie motivés et déterminés. Tous les membres du
+            groupe partagent une passion commune pour les sciences et la
+            technologie, ainsi qu'un fort désir de se démarquer dans leur
+            domaine d'études.
+          </p>
+          <a href="#contact" class="btn">contact us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- about section ends -->
+
+    <!-- courses section starts  -->
+
+    <section class="courses" id="courses">
+      <h1 class="heading">Nos <span>cours</span></h1>
+
+      <div
+        class="swiper course-slider swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden"
+      >
+        <div
+          class="swiper-wrapper"
+          id="swiper-wrapper-2953d65b2faef3a7"
+          aria-live="polite"
+          style="
+            cursor: grab;
+            transform: translate3d(-915px, 0px, 0px);
+            transition-duration: 0ms;
+          "
+        >
+          <div
+            class="swiper-slide slide swiper-slide-duplicate"
+            role="group"
+            aria-label="5 / 6"
+            data-swiper-slide-index="4"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/course-6.svg" alt="" />
+            <h3>voirie</h3>
+          </div>
+          <div
+            class="swiper-slide slide swiper-slide-duplicate swiper-slide-prev"
+            role="group"
+            aria-label="6 / 6"
+            data-swiper-slide-index="5"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/course-6.svg" alt="" />
+            <h3>python</h3>
+          </div>
+
+          <div
+            class="swiper-slide slide swiper-slide-active"
+            role="group"
+            aria-label="1 / 6"
+            data-swiper-slide-index="0"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/course-6.svg" alt="" />
+            <h3>Arcgis</h3>
+          </div>
+
+          <div
+            class="swiper-slide slide swiper-slide-next"
+            role="group"
+            aria-label="2 / 6"
+            data-swiper-slide-index="1"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/course-6.svg" alt="" />
+            <h3>Geostudio</h3>
+          </div>
+
+          <div
+            class="swiper-slide slide"
+            role="group"
+            aria-label="3 / 6"
+            data-swiper-slide-index="2"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/course-6.svg" alt="" />
+            <h3>robot bat</h3>
+          </div>
+
+          <div
+            class="swiper-slide slide"
+            role="group"
+            aria-label="4 / 6"
+            data-swiper-slide-index="3"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/course-6.svg" alt="" />
+            <h3>rdm6</h3>
+          </div>
+
+          <div
+            class="swiper-slide slide"
+            role="group"
+            aria-label="5 / 6"
+            data-swiper-slide-index="4"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/course-6.svg" alt="" />
+            <h3>voirie</h3>
+          </div>
+
+          <div
+            class="swiper-slide slide swiper-slide-duplicate-prev"
+            role="group"
+            aria-label="6 / 6"
+            data-swiper-slide-index="5"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/course-6.svg" alt="" />
+            <h3>python</h3>
+          </div>
+
+          <div
+            class="swiper-slide slide swiper-slide-duplicate swiper-slide-duplicate-active"
+            role="group"
+            aria-label="1 / 6"
+            data-swiper-slide-index="0"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/course-6.svg" alt="" />
+            <h3>web development</h3>
+          </div>
+          <div
+            class="swiper-slide slide swiper-slide-duplicate swiper-slide-duplicate-next"
+            role="group"
+            aria-label="2 / 6"
+            data-swiper-slide-index="1"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/course-6.svg" alt="" />
+            <h3>digital marketing</h3>
+          </div>
+        </div>
+
+        <div
+          class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"
+        >
+          <span
+            class="swiper-pagination-bullet swiper-pagination-bullet-active"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 1"
+            aria-current="true"
+          ></span
+          ><span
+            class="swiper-pagination-bullet"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 2"
+          ></span
+          ><span
+            class="swiper-pagination-bullet"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 3"
+          ></span
+          ><span
+            class="swiper-pagination-bullet"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 4"
+          ></span
+          ><span
+            class="swiper-pagination-bullet"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 5"
+          ></span
+          ><span
+            class="swiper-pagination-bullet"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 6"
+          ></span>
+        </div>
+
+        <span
+          class="swiper-notification"
+          aria-live="assertive"
+          aria-atomic="true"
+        ></span>
+      </div>
+    </section>
+
+    <!-- courses section ends -->
+
+    <!-- teachers section starts  -->
+
+    <section class="teachers" id="teachers">
+      <h1 class="heading">expert <span>tutors</span></h1>
+
+      <div
+        class="swiper teachers-slider swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden"
+      >
+        <div
+          class="swiper-wrapper"
+          id="swiper-wrapper-7e6b1b2fe4f5fd99"
+          aria-live="polite"
+          style="
+            cursor: grab;
+            transform: translate3d(-915px, 0px, 0px);
+            transition-duration: 0ms;
+          "
+        >
+          <div
+            class="swiper-slide slide swiper-slide-duplicate"
+            role="group"
+            aria-label="5 / 6"
+            data-swiper-slide-index="4"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/user-solid.svg" alt="" />
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-twitter"></a>
+              <a href="#" class="fab fa-instagram"></a>
+              <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>Pr. rachid boufferra</h3>
+          </div>
+          <div
+            class="swiper-slide slide swiper-slide-duplicate swiper-slide-prev"
+            role="group"
+            aria-label="6 / 6"
+            data-swiper-slide-index="5"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/user-solid.svg" alt="" />
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-twitter"></a>
+              <a href="#" class="fab fa-instagram"></a>
+              <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>Pr. rachid boufferra</h3>
+          </div>
+
+          <div
+            class="swiper-slide slide swiper-slide-active"
+            role="group"
+            aria-label="1 / 6"
+            data-swiper-slide-index="0"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/user-solid.svg" alt="" />
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-twitter"></a>
+              <a href="#" class="fab fa-instagram"></a>
+              <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>Pr. rachid boufferra</h3>
+          </div>
+
+          <div
+            class="swiper-slide slide swiper-slide-next"
+            role="group"
+            aria-label="2 / 6"
+            data-swiper-slide-index="1"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/user-solid.svg" alt="" />
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-twitter"></a>
+              <a href="#" class="fab fa-instagram"></a>
+              <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>Pr. saïf-dine sherif</h3>
+          </div>
+
+          <div
+            class="swiper-slide slide"
+            role="group"
+            aria-label="3 / 6"
+            data-swiper-slide-index="2"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/user-solid.svg" alt="" />
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-twitter"></a>
+              <a href="#" class="fab fa-instagram"></a>
+              <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>Pr. mme hind chraïbi<i class="cc cc-THREE"></i></h3>
+          </div>
+
+          <div
+            class="swiper-slide slide"
+            role="group"
+            aria-label="4 / 6"
+            data-swiper-slide-index="3"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/user-solid.svg" alt="" />
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-twitter"></a>
+              <a href="#" class="fab fa-instagram"></a>
+              <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>Pr. mme sakami siham</h3>
+          </div>
+
+          <div
+            class="swiper-slide slide"
+            role="group"
+            aria-label="5 / 6"
+            data-swiper-slide-index="4"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/user-solid.svg" alt="" />
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-twitter"></a>
+              <a href="#" class="fab fa-instagram"></a>
+              <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>Pr. A.Jadir</h3>
+          </div>
+
+          <div
+            class="swiper-slide slide swiper-slide-duplicate-prev"
+            role="group"
+            aria-label="6 / 6"
+            data-swiper-slide-index="5"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/user-solid.svg" alt="" />
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-twitter"></a>
+              <a href="#" class="fab fa-instagram"></a>
+              <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>mme elbassi</h3>
+          </div>
+
+          <div
+            class="swiper-slide slide swiper-slide-duplicate swiper-slide-duplicate-active"
+            role="group"
+            aria-label="1 / 6"
+            data-swiper-slide-index="0"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/user-solid.svg" alt="" />
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-twitter"></a>
+              <a href="#" class="fab fa-instagram"></a>
+              <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>john deo</h3>
+          </div>
+          <div
+            class="swiper-slide slide swiper-slide-duplicate swiper-slide-duplicate-next"
+            role="group"
+            aria-label="2 / 6"
+            data-swiper-slide-index="1"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <img src="images/user-solid.svg" alt="" />
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-twitter"></a>
+              <a href="#" class="fab fa-instagram"></a>
+              <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>john deo</h3>
+          </div>
+        </div>
+
+        <div
+          class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"
+        >
+          <span
+            class="swiper-pagination-bullet swiper-pagination-bullet-active"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 1"
+            aria-current="true"
+          ></span
+          ><span
+            class="swiper-pagination-bullet"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 2"
+          ></span
+          ><span
+            class="swiper-pagination-bullet"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 3"
+          ></span
+          ><span
+            class="swiper-pagination-bullet"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 4"
+          ></span
+          ><span
+            class="swiper-pagination-bullet"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 5"
+          ></span
+          ><span
+            class="swiper-pagination-bullet"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 6"
+          ></span>
+        </div>
+
+        <span
+          class="swiper-notification"
+          aria-live="assertive"
+          aria-atomic="true"
+        ></span>
+      </div>
+    </section>
+
+    <!-- teachers section ends -->
+
+    <!-- reviews section starts  -->
+
+    <section class="reviews" id="reviews">
+      <h1 class="heading">commentaires des <span>étudiants</span></h1>
+
+      <div
+        class="swiper reviews-slider swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden"
+      >
+        <div
+          class="swiper-wrapper"
+          id="swiper-wrapper-c17547685fa68df5"
+          aria-live="polite"
+          style="
+            cursor: grab;
+            transform: translate3d(-915px, 0px, 0px);
+            transition-duration: 0ms;
+          "
+        >
+          <div
+            class="swiper-slide slide swiper-slide-duplicate"
+            role="group"
+            aria-label="5 / 6"
+            data-swiper-slide-index="4"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <p>
+              Je suis ravi d'entendre que nous avons des bons professeurs ! Les
+              enseignants compétents et passionnés sont une véritable
+              bénédiction pour les étudiants. Ils inspirent, encouragent et
+              guident les élèves vers la réussite.
+            </p>
+            <div class="user">
+              <img src="images/baladi.jpg" alt="" />
+              <div class="user-info">
+                <h3>john deo</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="swiper-slide slide swiper-slide-duplicate swiper-slide-prev"
+            role="group"
+            aria-label="6 / 6"
+            data-swiper-slide-index="5"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
+              necessitatibus atque fuga delectus numquam consequatur velit autem
+              distinctio possimus culpa!
+            </p>
+            <div class="user">
+              <img src="images/baladi.jpg" alt="" />
+              <div class="user-info">
+                <h3>john deo</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide slide swiper-slide-active"
+            role="group"
+            aria-label="1 / 6"
+            data-swiper-slide-index="0"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <p>
+              Je suis ravi d'entendre que vous avez un bon professeur ! Les
+              enseignants compétents et passionnés sont une véritable
+              bénédiction pour les étudiants. Ils inspirent, encouragent et
+              guident les élèves vers la réussite.
+            </p>
+            <div class="user">
+              <img src="images/baladi.jpg" alt="" />
+              <div class="user-info">
+                <h3>Baladi Mohamed ayoub</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide slide swiper-slide-next"
+            role="group"
+            aria-label="2 / 6"
+            data-swiper-slide-index="1"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <p>
+              nari nari nari!!!!! il est important de reconnaître les efforts et
+              le dévouement d'un bon professeur. Les enseignants qui se soucient
+              de leurs élèves et qui prennent le temps de les aider à comprendre
+              les concepts sont inestimables.
+            </p>
+            <div class="user">
+              <img src="images/Ali Bounini.jpg" alt="" />
+              <div class="user-info">
+                <h3>ali bonini</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide slide"
+            role="group"
+            aria-label="3 / 6"
+            data-swiper-slide-index="2"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <p>
+              Je suis sûr que votre professeur est très apprécié de ses
+              étudiants pour sa compétence, son dévouement et son enthousiasme.
+              Continuez à apprendre et à grandir sous sa direction bienveillante
+              et n'oubliez jamais l'impact positif qu'un bon enseignant peut
+              avoir sur votre vie.
+            </p>
+            <div class="user">
+              <img src="images/houseini.jpg" alt="" />
+              <div class="user-info">
+                <h3>housseini dan guouzey</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide slide"
+            role="group"
+            aria-label="4 / 6"
+            data-swiper-slide-index="3"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <p>
+              أنا متأكد من أن معلمينا يستحقون العديد من الثناء الآخرين ، مثل
+              قدرتهم على صنع مفاهيم معقدة يسهل فهمها ، وصبرهم وقدرتهم على تشجيع
+              طلابها على تجاوز أنفسهم.
+            </p>
+            <div class="user">
+              <img src="images/Cheick Abba Bah.jpg" alt="" />
+              <div class="user-info">
+                <h3>cheick abba bah</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide slide"
+            role="group"
+            aria-label="5 / 6"
+            data-swiper-slide-index="4"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <p>
+              Je suis sûr que nos professeurs mérite de nombreuses autres
+              louanges, telles que leurs capacités à rendre des concepts
+              complexes faciles à comprendre, leur patience et leur capacité à
+              encourager ses étudiants à se dépasser.
+            </p>
+            <div class="user">
+              <img src="images/Abdelkabir Khouya.jpg" alt="" />
+              <div class="user-info">
+                <h3>Abdelkabir Khouya</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide slide swiper-slide-duplicate-prev"
+            role="group"
+            aria-label="6 / 6"
+            data-swiper-slide-index="5"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <p>
+              Je suis sûr que votre professeur sera touché d'entendre que vous
+              appréciez son engagement envers un environnement d'apprentissage
+              positif et inclusif. N'hésitez pas à lui exprimer votre gratitude
+              et à lui faire savoir combien vous appréciez ses efforts pour vous
+              aider à réussir.!
+            </p>
+            <div class="user">
+              <img src="images/Khalil Edderbali.jpg" alt="" />
+              <div class="user-info">
+                <h3>Khalil Edderbali.jpg</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide slide swiper-slide-duplicate swiper-slide-duplicate-active"
+            role="group"
+            aria-label="1 / 6"
+            data-swiper-slide-index="0"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
+              necessitatibus atque fuga delectus numquam consequatur velit autem
+              distinctio possimus culpa!
+            </p>
+            <div class="user">
+              <img src="images/pic-1.png" alt="" />
+              <div class="user-info">
+                <h3>john deo</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="swiper-slide slide swiper-slide-duplicate swiper-slide-duplicate-next"
+            role="group"
+            aria-label="2 / 6"
+            data-swiper-slide-index="1"
+            style="width: 437.5px; margin-right: 20px"
+          >
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
+              necessitatibus atque fuga delectus numquam consequatur velit autem
+              distinctio possimus culpa!
+            </p>
+            <div class="user">
+              <img src="images/pic-2.png" alt="" />
+              <div class="user-info">
+                <h3>john deo</h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"
+        >
+          <span
+            class="swiper-pagination-bullet swiper-pagination-bullet-active"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 1"
+            aria-current="true"
+          ></span
+          ><span
+            class="swiper-pagination-bullet"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 2"
+          ></span
+          ><span
+            class="swiper-pagination-bullet"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 3"
+          ></span
+          ><span
+            class="swiper-pagination-bullet"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 4"
+          ></span
+          ><span
+            class="swiper-pagination-bullet"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 5"
+          ></span
+          ><span
+            class="swiper-pagination-bullet"
+            tabindex="0"
+            role="button"
+            aria-label="Go to slide 6"
+          ></span>
+        </div>
+
+        <span
+          class="swiper-notification"
+          aria-live="assertive"
+          aria-atomic="true"
+        ></span>
+      </div>
+    </section>
+
+    <!-- reviews section ends -->
+
+    <!-- contact section starts  -->
+
+    <section class="contact" id="contact">
+      <h1 class="heading"><span>contact</span> us</h1>
+
+      <div class="row">
+        <div class="image">
+          <img src="images/contact-img.svg" alt="" />
+        </div>
+
+        <form action="" method="post">
+          <span>your name</span>
+          <input
+            type="text"
+            required=""
+            placeholder="enter your full name"
+            maxlength="50"
+            name="name"
+            class="box"
+          />
+          <span>your email</span>
+          <input
+            type="email"
+            required=""
+            placeholder="enter your valie email"
+            maxlength="50"
+            name="email"
+            class="box"
+          />
+          <span>your number</span>
+          <input
+            type="number"
+            required=""
+            placeholder="enter your valie number"
+            max="9999999999"
+            min="0"
+            name="number"
+            class="box"
+            onkeypress="if(this.value.length == 10) return false;"
+          />
+
+          <span>select gender</span>
+          <div class="radio">
+            <input type="radio" name="gender" value="male" id="male" />
+            <label for="male">male</label>
+            <input type="radio" name="gender" value="female" id="female" />
+            <label for="female">female</label>
+          </div>
+          <input type="submit" value="send message" class="btn" name="send" />
+        </form>
+      </div>
+    </section>
+
+    <!-- contact section ends -->
+
+    <!-- footer section starts  -->
+
+    <footer class="footer">
+      <section>
+        <div class="share">
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            class="fab fa-facebook-f"
+            style="color: #3b5998"
+          ></a>
+          <a
+            href="https://twitter.com/?lang=fr"
+            target="_blank"
+            class="fab fa-twitter"
+            style="color: #00acee"
+          ></a>
+          <a
+            href="https://www.linkedin.com/login/fr"
+            target="_blank"
+            class="fab fa-linkedin"
+            style="color: #0072b1"
+          ></a>
+          <a
+            href="https://www.instagram.com/accounts/login/?__coig_restricted=1"
+            target="_blank"
+            class="fab fa-instagram"
+            style="color: #feda75"
+          ></a>
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            class="fab fa-youtube"
+            style="color: #ff0000"
+          ></a>
+        </div>
+
+        <div class="credit">
+          © copyright @ 2022 by <span>GC 2022-2023</span> | all rights reserved!
+        </div>
+      </section>
+    </footer>
+
+    <!-- footer section ends -->
+
+    <!-- swiper js link  -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <!-- custom js file link  -->
+    <script>
+      let menuBtn = document.querySelector("#menu-btn");
+      let navbar = document.querySelector(".header .flex .navbar");
+
+      menuBtn.onclick = () => {
+        menuBtn.classList.toggle("fa-times");
+        navbar.classList.toggle("active");
+      };
+
+      window.onscroll = () => {
+        menuBtn.classList.remove("fa-times");
+        navbar.classList.remove("active");
+      };
+
+      var swiper = new Swiper(".course-slider", {
+        spaceBetween: 20,
+        grabCursor: true,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          540: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      });
+
+      var swiper = new Swiper(".teachers-slider", {
+        spaceBetween: 20,
+        grabCursor: true,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          540: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      });
+
+      var swiper = new Swiper(".reviews-slider", {
+        spaceBetween: 20,
+        grabCursor: true,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          540: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
